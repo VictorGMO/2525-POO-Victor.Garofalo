@@ -1,0 +1,27 @@
+Sistema de gestion de estudiantes, de la tarea constructores en Java
+
+Nombre: Victor Garofalo
+
+Descripción del Programa: en mi tarea se demuestra el uso de constructores en Java. 
+se ha creado dos clases ,una llamada "Estudiante" que contiene atributos como nombre, edad y carrera.
+también se incluye la otra clase "Clase_main" para probar la creación de objetos con los distintos constructores.
+
+Ejemplo de ejecucion:
+
+Estudiante 1:
+Nombre: No definido
+Edad: 0
+Carrera: Sin carrera
+
+Estudiante 2:
+Nombre: Ana Lopez
+Edad: 19
+Carrera: Ingenieria en Sistemas
+
+Estudiante 3:
+Nombre: Carlos Perez
+Edad: 20
+Carrera: Carrera no especificada
+
+--------
+(Para ejecutar el programa, ejecutar directamente "Clase_main") 
