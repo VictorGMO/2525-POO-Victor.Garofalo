@@ -1,0 +1,12 @@
+Sistema de Notas -Proyecto de POO en Java
+
+Este programa permitira registrar materias y calificaciones,tambien mostrar todas las notas registradas y calcular el promedio general. lo e desarrollado aplicando principios de POO .
+
+Estructura del proyecto:
+
+- Modelo.java representa una materia con su nota
+- Servicio.java maneja la lógica para almacenar y calcular notas
+- Dashboard.java menú interactivo para gestionar el sistema
+- Vista.java inicia el programa
+
+VICTOR GAROFALO
