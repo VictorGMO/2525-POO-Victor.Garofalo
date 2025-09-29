@@ -24,12 +24,12 @@ import javax.swing.SwingUtilities;
  * @author victo
  */
 public class Semana_15 extends JFrame {
-    private DefaultListModel<String> tareasMdl;
-    private JList<String> listTarea;    
-    private JTextField campoEntrada;
+    private DefaultListModel<String> tareasMdl; //guarda tareas
+    private JList<String> listTarea;//lista    
+    private JTextField campoEntrada;//para ingresar nuevas tareas
 
-    public Semana_15() {
-        setTitle("LISTA DE TAREAS");
+    public Semana_15() { //ventanas y componentes
+        setTitle("LISTA DE TAREAS");// titulo
         setSize(400,400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -39,15 +39,15 @@ public class Semana_15 extends JFrame {
         listTarea.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listTarea.setCellRenderer(new TaskCellRenderer());
         campoEntrada=new JTextField();
-
+//botones
         JButton botonAgregar=new JButton("Añadir Tarea");
         JButton botonCompletar=new JButton("Marcar como completada");
         JButton botonEliminar=new JButton("Eliminar tarea");
-
+//superior, panel y boton
         JPanel panelSuperior=new JPanel(new BorderLayout());
         panelSuperior.add(campoEntrada, BorderLayout.CENTER);
         panelSuperior.add(botonAgregar, BorderLayout.EAST);
-
+//botones completar y eliminar
         JPanel panelInferior=new JPanel();
         panelInferior.add(botonCompletar);
         panelInferior.add(botonEliminar);
@@ -55,12 +55,12 @@ public class Semana_15 extends JFrame {
         add(panelSuperior, BorderLayout.NORTH);
         add(new JScrollPane(listTarea), BorderLayout.CENTER);
         add(panelInferior, BorderLayout.SOUTH);
-
+//acciones
         botonAgregar.addActionListener(e-> agregarTarea());
         botonCompletar.addActionListener(e-> completarTarea());
         botonEliminar.addActionListener(e-> eliminarTarea());
         campoEntrada.addActionListener(e-> agregarTarea());
-
+//marcar como competada
         listTarea.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount()==2) {
@@ -68,14 +68,14 @@ public class Semana_15 extends JFrame {
                 }}
         });
     }
-
+//agrega
     private void agregarTarea() {
         String text= campoEntrada.getText().trim();
         if (!text.isEmpty()) {
             tareasMdl.addElement("=Pendiente= " +text);
             campoEntrada.setText("");
         }}
-
+//marca como completada
     private void completarTarea() {
         int index=listTarea.getSelectedIndex();
         if (index !=-1) {
@@ -83,13 +83,13 @@ public class Semana_15 extends JFrame {
             if (!tarea.startsWith(":[Completada]")) {
                 tareasMdl.set(index, "[Completada] " + tarea.substring(11));
             }}}
-
+//elimina
     private void eliminarTarea() {
         int index=listTarea.getSelectedIndex();
         if (index != -1) {
             tareasMdl.remove(index);
         }}
-
+//parta cambiar el estilo de las tareas segun su estado
     private static class TaskCellRenderer extends DefaultListCellRenderer {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value,
